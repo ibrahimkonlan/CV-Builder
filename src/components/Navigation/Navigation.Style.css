@@ -1,0 +1,12 @@
+.navbar{
+    background-color: #7640EB;
+}
+.me-auto{
+    margin-left: 2em;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    margin-left: -5em;
+}
