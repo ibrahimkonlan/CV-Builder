@@ -9,22 +9,24 @@ import Education from "./components/Education/Education";
 import Interest from "./components/Interests/Interest";
 import Skills from "./components/Skills/Skills";
 import CVPage from "./components/CVPage/CVPage";
-
+import CVProvider from "./context/CVProvider";
 
 function App() {
   return (
-    <Router>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/personal" element={<PersonalDetails />} />
-        <Route path="/work" element={<WorkExperience />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/interest" element={<Interest />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/cvpage" element={<CVPage />} />
-      </Routes>
-    </Router>
+    <CVProvider>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/personal" element={<PersonalDetails />} />
+          <Route path="/work" element={<WorkExperience />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/interest" element={<Interest />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/cvpage" element={<CVPage/>} />
+        </Routes>
+      </Router>
+    </CVProvider>
   );
 }
 
