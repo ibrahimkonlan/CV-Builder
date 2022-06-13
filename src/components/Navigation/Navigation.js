@@ -34,9 +34,42 @@ const Navigation = () => {
             >
               Work Experience
             </NavLink>
-            <NavLink to="#Education">Education</NavLink>
-            <NavLink to="#interests">Interests</NavLink>
-            <NavLink to="#skills">Skills</NavLink>
+            <NavLink
+              to="education"
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "rgba(255, 255, 255, 0.6)",
+                textDecoration: "none",
+              })}
+            >
+              Education
+            </NavLink>
+            <NavLink
+              to="interest"
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "rgba(255, 255, 255, 0.6)",
+                textDecoration: "none",
+              })}
+            >
+              Interests
+            </NavLink>
+            <NavLink
+              to="skills"
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "rgba(255, 255, 255, 0.6)",
+                textDecoration: "none",
+              })}
+            >
+              Skills
+            </NavLink>
+            <NavLink
+              to="cvpage"
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "rgba(255, 255, 255, 0.6)",
+                textDecoration: "none",
+              })}
+            >
+              Preview
+            </NavLink>
           </Nav>
         </Container>
       </Navbar>
