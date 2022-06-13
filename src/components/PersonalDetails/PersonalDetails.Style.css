@@ -1,0 +1,116 @@
+.text-wrapper{
+    width: 50%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text-wrapper h1{
+    font-size: 3em;
+    font-weight: bold;
+    color: #7640EB;
+    
+}
+form{
+    height: 120vh;
+}
+.personal-details{
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+}
+.image-upload{
+    /* border: 1px solid black; */
+    width: 30%;
+    height: 60vh;
+    border-radius: 10px;
+    background-color:#7640eb0f;
+}
+.details-wrapper{
+    width: 60%;
+    height: 100vh;
+    background-color:#7640eb0f;
+}
+input{
+    width: 18em;
+    height: 7.8vh;
+    border-radius: 8px;
+    border: 1px solid grey;
+    outline-color: #7640EB;
+    padding-left: 1em;
+}
+.fullname{
+    width: 80%;
+    margin-top: 1em;
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.firstname{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+
+.lastname{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+.email-phone-container{
+    width: 80%;
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+.current-job{
+    width: 80%;
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.job{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+input[type=text]{
+    width: 40.5em;
+    height: 7.8vh;
+    border-radius: 8px;
+    border: 1px solid grey;
+    outline-color: #7640EB;
+    padding-left: 1em;
+}
+.address-country-container{
+    width: 80%;
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.address{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
+.country{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+}
