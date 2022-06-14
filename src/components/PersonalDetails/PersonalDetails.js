@@ -4,17 +4,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-import {db}  from "../../firebase";
-import { collection, addDoc } from "firebase/firestore"
+import { CVState } from "../../context/CVProvider";
 
 const personalSchema = yup.object().shape({
-  firstName: yup.string().min(4).max(25).required(),
-  lastName: yup.string().min(4).max(25).required(),
-  email: yup.string().email().required(),
-  phone: yup.number().required(),
-  currentJob: yup.string().required(),
-  address: yup.string().required(),
-  country: yup.string().required(),
+  firstName: yup.string().min(4).max(25),
+  lastName: yup.string().min(4).max(25),
+  email: yup.string().email(),
+  phone: yup.number(),
+  currentJob: yup.string(),
+  address: yup.string(),
+  country: yup.string(),
   careerObjective: yup.string().min(100).max(250),
 });
 
@@ -28,7 +27,7 @@ const PersonalDetails = () => {
   const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
   const [careerObjective, setCareerObjective] = useState("");
-  const usersCollectionRef = collection(db, "users")
+  const { data, setData } = CVState()
 
   const {
     register,
@@ -39,21 +38,10 @@ const PersonalDetails = () => {
     resolver: yupResolver(personalSchema),
   });
 
-  const sendData  = async () => {
-    await addDoc(usersCollectionRef, {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: phone,
-      currentJob: currentJob,
-      address: address,
-      country: country,
-      careerObjective: careerObjective
-    });
-  }
+  
 
-  const onSubmit = () => {
-    sendData()
+  const onSubmit = (data) => {
+    setData(data)
     reset();
   };
 
@@ -80,6 +68,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="First Name"
                   {...register("firstName")}
+                  value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
                   }}
@@ -92,6 +81,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Last Name"
                   {...register("lastName")}
+                  value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
                   }}
@@ -106,6 +96,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="email"
                   {...register("email")}
+                  value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -118,6 +109,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Phone"
                   {...register("phone")}
+                  value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
@@ -133,6 +125,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Current Job"
                   {...register("currentJob")}
+                  value={currentJob}
                   onChange={(e) => {
                     setCurrentJob(e.target.value);
                   }}
@@ -147,6 +140,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="address"
                   {...register("address")}
+                  value={address}
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
@@ -159,6 +153,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="country"
                   {...register("country")}
+                  value={country}
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
@@ -174,6 +169,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Please insert a text here"
                   {...register("careerObjective")}
+                  value={careerObjective}
                   onChange={(e) => {
                     setCareerObjective(e.target.value);
                   }}
