@@ -14,3 +14,73 @@
     height: 120vh;
     background-color: #9a7dd9;
 }
+.image-text-wrapper{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+}
+.profile-image{
+    width: 50%;
+    height: 100%;
+}
+.details-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.fullname-container{
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1em;
+}
+.first-name{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #9a7dd9;
+}
+.last-name{
+    font-size: 1.3em;
+    color: #6b6a6d;
+}
+.current-work{
+    width: 100%;
+    font-size: 1.3em;
+    color: #6b6a6d;
+}
+.work{
+    font-size: 0.5em;
+    color: #6b6a6d;
+    margin-left: 0.4em;
+}
+.sub-detail{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3em;
+    color: #9a7dd9;
+}
+.mobile{
+    margin-top: 1em;
+    font-size: 0.5em;
+    color: #6b6a6d;
+}
+.email-detail{
+     width: 100%;
+     font-size: em;
+     height: 1vh;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin-top: 0.1em;
+}
+.contact-email{
+    font-size: 0.6em;
+    color: #6b6a6d;
+    margin-right: em;  
+}

@@ -27,7 +27,7 @@ const PersonalDetails = () => {
   const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
   const [careerObjective, setCareerObjective] = useState("");
-  const { data, setData } = CVState()
+  const {  setData } = CVState()
 
   const {
     register,
