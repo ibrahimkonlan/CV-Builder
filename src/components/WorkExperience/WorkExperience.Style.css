@@ -1,4 +1,22 @@
 .container {
-    
 }
-
+.mt-3 {
+  
+  font-size: 3em;
+  font-weight: bold;
+  color: #7640eb;
+  text-align: center;
+}
+.col-mb-3{
+    margin-top: 1em;
+}
+.col-mb-1 {
+  display: flex;
+  justify-content: space-between;
+  width: 41.5em;
+}
+.date {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}

@@ -7,19 +7,20 @@ import { useNavigate } from "react-router-dom";
 import { CVState } from "../../context/CVProvider";
 
 const personalSchema = yup.object().shape({
-  firstName: yup.string().min(4).max(25),
-  lastName: yup.string().min(4).max(25),
+  firstName: yup.string(),
+  lastName: yup.string(),
   email: yup.string().email(),
   phone: yup.number(),
   currentJob: yup.string(),
   address: yup.string(),
   country: yup.string(),
-  careerObjective: yup.string().min(100).max(250),
+  careerObjective: yup.string(),
 });
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
+  const [image, setImage] = useState("")
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState(0);
@@ -27,6 +28,7 @@ const PersonalDetails = () => {
   const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
   const [careerObjective, setCareerObjective] = useState("");
+
   const {  setData } = CVState()
 
   const {
@@ -43,6 +45,7 @@ const PersonalDetails = () => {
   const onSubmit = (data) => {
     setData(data)
     reset();
+    navigate("/cvpage")
   };
 
   const handleBack = () => {
@@ -59,7 +62,7 @@ const PersonalDetails = () => {
         <div className="personal-details">
           <div className="image-upload">
             <h3>upload your image</h3>
-            <input type="file" />
+            <input type="file" {...register("image")} onChange={(e) => {setImage(URL.createObjectURL(e.target.files[0]))}}/>
           </div>
           <div className="details-wrapper">
             <div className="fullname">
@@ -68,7 +71,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="First Name"
                   {...register("firstName")}
-                  value={firstName}
+                  // value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
                   }}
@@ -81,7 +84,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Last Name"
                   {...register("lastName")}
-                  value={lastName}
+                  // value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
                   }}
@@ -96,7 +99,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="email"
                   {...register("email")}
-                  value={email}
+                  // value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -109,7 +112,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Phone"
                   {...register("phone")}
-                  value={phone}
+                  // value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
@@ -125,7 +128,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Current Job"
                   {...register("currentJob")}
-                  value={currentJob}
+                  // value={currentJob}
                   onChange={(e) => {
                     setCurrentJob(e.target.value);
                   }}
@@ -140,7 +143,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="address"
                   {...register("address")}
-                  value={address}
+                  // value={address}
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
@@ -153,7 +156,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="country"
                   {...register("country")}
-                  value={country}
+                  // value={country}
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
@@ -169,7 +172,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Please insert a text here"
                   {...register("careerObjective")}
-                  value={careerObjective}
+                  // value={careerObjective}
                   onChange={(e) => {
                     setCareerObjective(e.target.value);
                   }}
