@@ -45,7 +45,7 @@ const PersonalDetails = () => {
   const onSubmit = (data) => {
     setData(data)
     reset();
-    navigate("/cvpage")
+    navigate("/work")
   };
 
   const handleBack = () => {
@@ -71,7 +71,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="First Name"
                   {...register("firstName")}
-                  // value={firstName}
+                  value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
                   }}
@@ -84,7 +84,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Last Name"
                   {...register("lastName")}
-                  // value={lastName}
+                  value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
                   }}
@@ -99,7 +99,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="email"
                   {...register("email")}
-                  // value={email}
+                  value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -112,7 +112,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="Phone"
                   {...register("phone")}
-                  // value={phone}
+                  value={phone}
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
@@ -128,7 +128,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Current Job"
                   {...register("currentJob")}
-                  // value={currentJob}
+                  value={currentJob}
                   onChange={(e) => {
                     setCurrentJob(e.target.value);
                   }}
@@ -143,7 +143,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="address"
                   {...register("address")}
-                  // value={address}
+                  value={address}
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
@@ -156,7 +156,7 @@ const PersonalDetails = () => {
                 <input
                   placeholder="country"
                   {...register("country")}
-                  // value={country}
+                  value={country}
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
@@ -172,7 +172,7 @@ const PersonalDetails = () => {
                   type="text"
                   placeholder="Please insert a text here"
                   {...register("careerObjective")}
-                  // value={careerObjective}
+                  value={careerObjective}
                   onChange={(e) => {
                     setCareerObjective(e.target.value);
                   }}

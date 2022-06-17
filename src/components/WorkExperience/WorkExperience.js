@@ -2,157 +2,252 @@ import { useState } from "react";
 import React from "react";
 import "./WorkExperience.Style.css";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import DatePicker from "@mui/lab/DatePicker";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import { Container } from "react-bootstrap";
+import { CVState } from "../../context/CVProvider";
 
 function WorkExperience() {
-  const [inputList, setinputList] = useState([{ jobTitle: "", employer: "" }]);
-  const { handleSubmit } = useForm();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [check, setCheck] = useState(true);
+  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate } = CVState()
+  const navigate = useNavigate();
+  const { setWorkExperience } = CVState();
+  const [jobTitle, setJobTitle] = useState();
+  const [employer, setEmployer] = useState();
+  const [city, setCity] = useState();
+  const [country, setCountry] = useState();
+  const [jobDescription, setJobDescription] = useState();
 
-  const handleinputchange = (e, index) => {
-    const { jobTitle, value } = e.targe;
-    const list = [...inputList];
-    list[index][jobTitle] = value;
-    setinputList(list);
-  };
-  const handleremove = (index) => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setinputList(list);
+  const [optJobTitle, setOptJobTitle] = useState();
+  const [optEmployer, setOptEmployer] = useState();
+  const [optCity, setOptCity] = useState();
+  const [optCountry, setOptCountry] = useState();
+  const [optJobDescription, setOptJobDescription] = useState();
+
+  const { register, reset, handleSubmit } = useForm();
+
+  const handleBack = () => {
+    navigate("/personal");
   };
 
-  const handleaddclick = () => {
-    setinputList([...inputList, { jobTitle: "", employer: "" }]);
+  const onSubmit = (data) => {
+    setWorkExperience(data);
+    navigate("/cvpage")
+    reset();
   };
 
-  const handleCheck = (e) => {
-    setCheck(e.target.value);
-  };
   return (
     <>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
-        <Container className="content">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="mt-3 mb-4 fw-bold">Work Experience</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="content">
+          <h1 className="title-text">Work Experience</h1>
 
-              {inputList.map((x, i) => {
-                return (
-                  <div className="row mb-3">
-                    <div className="col-mb-3">
-                      <label>Job Title</label>
-                      <input
-                        type="text"
-                        name="job title"
-                        className="form-control"
-                        placeholder="Enter job title"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
-                    <div className="col-mb-3">
-                      <label>Employer</label>
-                      <input
-                        type="text"
-                        name="Employer"
-                        className="form-control"
-                        placeholder="Enter employer"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
-                    <div className="col-mb-1">
-                      <div className="date">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                          <DatePicker
-                            label="Start date"
-                            value={startDate}
-                            onChange={(newValue) => {
-                              setStartDate(newValue);
-                            }}
-                            renderInput={(params) => <TextField {...params} />}
-                          />
-                        </LocalizationProvider>
-                      </div>
-                      <div className="date">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                          <DatePicker
-                            label="End date"
-                            value={endDate}
-                            onChange={(newValue) => {
-                              setEndDate(newValue);
-                            }}
-                            renderInput={(params) => <TextField {...params} />}
-                          />
-                        </LocalizationProvider>
-                      </div>
-                    </div>
+          <div className="work-experience-content1">
+            <div className="input-wrapper">
+              <label>Job Title</label>
+              <input
+                type="text"
+                className="job-title"
+                value={jobTitle}
+                placeholder="Enter job title"
+                {...register("jobTitle")}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
+            </div>
 
-                    <div className="check">
-                      <FormGroup>
-                        <FormControlLabel
-                          control={
-                            <Checkbox value={check} onClick={handleCheck} />
-                          }
-                          label="Currently works here"
-                        />
-                      </FormGroup>
-                    </div>
+            <div className="input-wrapper">
+              <label>Employer</label>
+              <input
+                type="text"
+                className="employer"
+                value={employer}
+                placeholder="Enter employer"
+                {...register("employer")}
+                onChange={(e) => setEmployer(e.target.value)}
+              />
+            </div>
 
-                    <div className="col-mb-3">
-                      <label>City</label>
-                      <input
-                        type="text"
-                        name="Employer"
-                        className="form-control"
-                        placeholder="Enter city"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
+            <div className="date-wrapper">
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Start date"
+                    value={startDate}
+                    onChange={(newValue) => {
+                      setStartDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
 
-                    <div className="col-mb-3">
-                      <label>State</label>
-                      <input
-                        type="text"
-                        name="Employer"
-                        className="form-control"
-                        placeholder="Enter state"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
-                    <div className=" col-md-2">
-                      {inputList.length !== 1 && (
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => handleremove(i)}
-                        >
-                          Remove
-                        </button>
-                      )}
-                      {inputList.length - 1 === i && (
-                        <button
-                          className="btn btn-success"
-                          onClick={handleaddclick}
-                        >
-                          Add
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="End date"
+                    value={endDate}
+                    onChange={(newValue) => {
+                      setEndDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+            </div>
+
+            <div className="location">
+              <div className="input-wrapper">
+                <label>City</label>
+                <input
+                  type="text"
+                  className="city"
+                  value={city}
+                  placeholder="Enter city"
+                  {...register("city")}
+                  onChange={(e) => setCity(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+
+              <div className="input-wrapper">
+                <label>Region</label>
+                <input
+                  type="text"
+                  className="country"
+                  value={country}
+                  placeholder="Enter country"
+                  {...register("country")}
+                  onChange={(e) => setCountry(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+            </div>
+
+            <div className="input-wrapper">
+              <label>Job Description</label>
+              <textarea
+                type="text"
+                className="job-description"
+                value={jobDescription}
+                {...register("jobDescription")}
+                placeholder="please enter your role"
+                onChange={(e) => setJobDescription(e.target.value)}
+              />
             </div>
           </div>
-        </Container>
 
-        <input type="submit" />
+          <div className="work-experience-content2">
+            <div className="input-wrapper">
+              <label>Job Title</label>
+              <input
+                type="text"
+                className="job-title"
+                placeholder="Enter job title"
+                value={optJobTitle}
+                {...register("optJobTitle")}
+                onChange={(e) => setOptJobTitle(e.target.value)}
+              />
+            </div>
+
+            <div className="input-wrapper">
+              <label>Employer</label>
+              <input
+                type="text"
+                className="employer"
+                value={optEmployer}
+                placeholder="Enter employer"
+                {...register("optEmployer")}
+                onChange={(e) => setOptEmployer(e.target.value)}
+              />
+            </div>
+
+            <div className="date-wrapper">
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Start date"
+                    value={optStartDate}
+                    onChange={(newValue) => {
+                      setOptStartDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="End date"
+                    value={optEndDate}
+                    onChange={(newValue) => {
+                      setOptEndDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+            </div>
+
+            <div className="location">
+              <div className="input-wrapper">
+                <label>City</label>
+                <input
+                  type="text"
+                  className="city"
+                  placeholder="Enter city"
+                  value={optCity}
+                  {...register("optCity")}
+                  onChange={(e) => setOptCity(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+
+              <div className="input-wrapper">
+                <label>State</label>
+                <input
+                  type="text"
+                  className="state"
+                  placeholder="Enter state"
+                  value={optCountry}
+                  {...register("optCountry")}
+                  onChange={(e) => setOptCountry(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+            </div>
+
+            <div className="input-wrapper">
+              <label>Job Description</label>
+              <textarea
+                type="text"
+                className="job-description"
+                {...register("optJobDescription")}
+                value={optJobDescription}
+                placeholder="please enter your role"
+                onChange={(e) => setOptJobDescription(e.target.value)}
+              />
+            </div>
+          </div>
+
+          
+
+          <div className="button-wrapper">
+            <button className="back" onClick={handleBack}>
+              back
+            </button>
+            <button className="continue">continue</button>
+          </div>
+        </div>
       </form>
     </>
   );

@@ -7,11 +7,21 @@ import {
   AiFillIdcard,
   AiFillEnvironment,
 } from "react-icons/ai";
+import { MdWork } from "react-icons/md";
+import { GiGraduateCap } from "react-icons/gi";
+import { MdLocalPlay } from "react-icons/md";
+import { FaQuoteLeft } from "react-icons/fa";
+import { CgShapeCircle } from "react-icons/cg";
+import Education from "../Education/Education";
 
 const CVPage = () => {
-  const { data } = CVState();
-
-  
+  const { data, workExperience, startDate, endDate, optStartDate, optEndDate } = CVState();
+  console.log(data);
+  console.log(workExperience);
+  console.log(startDate);
+  console.log(endDate);
+  console.log(optStartDate);
+  console.log(optEndDate);
 
   return (
     <>
@@ -20,7 +30,7 @@ const CVPage = () => {
           <div className="image-text-wrapper">
             <div className="profile-image">
               <div className="image-container">
-                <img className="profile-pic" src={data.image} alt="" />
+                {/* <img className="profile-pic" src={data.image} alt="" /> */}
               </div>
             </div>
             <div className="details-container">
@@ -54,8 +64,85 @@ const CVPage = () => {
               </div>
             </div>
           </div>
+
+          <div className="work-experience-wrapper">
+            <div className="title">
+              <div className="icon">
+                <MdWork style={{ color: "white" }} />
+              </div>
+
+              <h3>WORK EXPERIENCE</h3>
+            </div>
+
+            <div className="work-info">
+              <div className="work-details">
+                <div className="work-date">startDate </div>
+                <CgShapeCircle style={{ color: "#9a7dd9" }}/>
+                <h2 className="position">{workExperience.jobTitle}</h2>
+              </div>
+
+              <div className="employer-count-wrapper">
+                <div className="employer">{workExperience.employer},</div>
+                <div className="state">{workExperience.city}       -</div>
+                <div className="country">{workExperience.country}</div>
+              </div>
+              <div className="work-desc">{workExperience.jobDescription}</div>
+            </div>
+
+            <div className="work-info">
+              <div className="work-details">
+                <div className="work-date">startDate </div>
+                <CgShapeCircle style={{ color: "#9a7dd9" }}/>
+                <h2 className="position">{workExperience.optJobTitle}</h2>
+              </div>
+
+              <div className="employer-count-wrapper">
+                <div className="employer">{workExperience.optEmployer},</div>
+                <div className="state">{workExperience.optCity}       -</div>
+                <div className="country">{workExperience.optCountry}</div>
+              </div>
+              <div className="work-desc">{workExperience.optJobDescription}</div>
+            </div>
+          </div>
+
+          <div className="education-wrapper">
+            <div className="edu-title">
+              <div className="icon">
+                <GiGraduateCap style={{ color: "white" }} />
+              </div>
+
+              <h3>EDUCATION</h3>
+            </div>
+
+            <div className="edu-info">
+            <div className="edu-details">
+            <div className="work-date">startDate </div>
+            <CgShapeCircle style={{ color: "#9a7dd9" }}/>
+            <h2 className="programme">{Education.optPrograme}</h2>
+            </div>
+            <div className="edu">{Education.optJobDescription}</div>
+            </div>
+          </div>
+
+          <div className="hobbies-wrapper">
+            <div className="hobby-title">
+              <div className="icon">
+                <MdLocalPlay style={{ color: "white" }} />
+              </div>
+
+              <h3>HOBBIES AND INTERESTS</h3>
+            </div>
+          </div>
         </div>
-        <div className="purple-background"></div>
+        <div className="purple-background">
+          <div className="career-obj">
+            <FaQuoteLeft
+              size={25}
+              style={{ color: "white", marginLeft: "2em" }}
+            />
+            <div className="career-text"></div>
+          </div>
+        </div>
       </div>
     </>
   );
