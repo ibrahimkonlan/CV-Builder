@@ -15,7 +15,7 @@ import { CgShapeCircle } from "react-icons/cg";
 import Education from "../Education/Education";
 
 const CVPage = () => {
-  const { data, workExperience, startDate, endDate, optStartDate, optEndDate } = CVState();
+  const { data, workExperience, careerObjective, startDate, endDate, optStartDate, optEndDate } = CVState();
   console.log(data);
   console.log(workExperience);
   console.log(startDate);
@@ -118,9 +118,9 @@ const CVPage = () => {
             <div className="edu-details">
             <div className="work-date">startDate </div>
             <CgShapeCircle style={{ color: "#9a7dd9" }}/>
-            <h2 className="programme">{Education.optPrograme}</h2>
+            <h2 className="programme">{Education.optProgramme}</h2>
             </div>
-            <div className="edu">{Education.optJobDescription}</div>
+            <div className="edu">{Education.ProDescription}</div>
             </div>
           </div>
 
@@ -141,6 +141,7 @@ const CVPage = () => {
               style={{ color: "white", marginLeft: "2em" }}
             />
             <div className="career-text"></div>
+            {/* <p className="career-obj">{careerObjective.careerObjDisc}</p> */}
           </div>
         </div>
       </div>

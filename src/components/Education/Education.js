@@ -11,22 +11,27 @@ import { CVState } from "../../context/CVProvider";
 
 const Education = () => {
   const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate } = CVState()
-  const [schoolName, setSchoolName] = useState();
+  const [programme, setProgramme] = useState();
   const [schoolLocation, setSchoolLocation] = useState();
-  const [degree, setDegree] = useState();
-  const [fieldOfStudy, setFieldOfStudy] = useState();
+  // const [degree, setDegree] = useState();
+  // const [fieldOfStudy, setFieldOfStudy] = useState();
+  const [proDescription, setProDescription] = useState();
 
-  const [optSchoolName, setOptSchoolName] = useState();
+
+  const [optProgramme, setOptProgramme] = useState();
   const [optSchoolLocation, setOpSchoolLocation] = useState();
-  const [optDegree, setOptDegree] = useState();
-  const [optFieldOfStudy, setOptFieldOfStudy] = useState();
+  // const [optDegree, setOptDegree] = useState();
+  // const [optFieldOfStudy, setOptFieldOfStudy] = useState();
+  const [optProDescription, setOptProDescription] = useState();
+
 
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+   navigate("/cvpage")
     reset()
   };
+  
   const handleBack = () => {
     navigate("/work");
   }
@@ -36,16 +41,16 @@ const Education = () => {
         <div className="content"> 
         <h1 className="title-text">Education</h1>
 
-        <div className="school-name-content1">
+        <div className="programme-content1">
         <div className="input-wrapper">
-        <label>school Name</label>
+        <label>Programme</label>
           <input
             type="text"
              className="school-name"
-              value={schoolName}
-             placeholder="Enter school name"
-             {...register("schoolName")}
-             onChange={(e) => setSchoolName(e.target.value)} 
+              value={programme}
+             placeholder="Enter programme"
+             {...register("programme")}
+             onChange={(e) => setProgramme(e.target.value)} 
           />
           </div>
 
@@ -93,7 +98,7 @@ const Education = () => {
               </div>
             </div>
 
-            <div className="degree">
+            {/* <div className="degree">
               <div className="input-wrapper">
                 <label>Degree</label>
                 <input
@@ -105,32 +110,44 @@ const Education = () => {
                   onChange={(e) => setDegree(e.target.value)}
                   style={{ width: "18em" }}
                 />
-              </div>
+              </div> */}
 
-              <div className="input-wrapper">
-                <label>Field Of Study</label>
+              {/* <div className="input-wrapper">
+                <label>Field of Study</label>
                 <input
                   type="text"
-                  className="country"
-                  value={setFieldOfStudy}
+                  className="field-of-study"
+                  value={fieldOfStudy}
                   placeholder="Enter field of study"
                   {...register("fieldOfStudy")}
                   onChange={(e) => setFieldOfStudy(e.target.value)}
                   style={{ width: "18em" }}
                 />
-              </div>
+              </div> */}
+
+              <div className="input-wrapper">
+              <label>Programme Description</label>
+              <textarea
+                type="text"
+                className="pro-description"
+                value={proDescription}
+                {...register("proDescription")}
+                placeholder="Enter programme description"
+                onChange={(e) => setProDescription(e.target.value)}
+              />
+            </div>
             </div>
         
-        <div className="school-name-content2">
+        <div className="programme-content2">
         <div className="input-wrapper">
-              <label>School Name</label>
+              <label>Programme</label>
               <input
                 type="text"
-                className="school-name"
-                placeholder="Enter school name"
-                value={optSchoolName}
-                {...register("optSchoolName")}
-                onChange={(e) => setOptSchoolName(e.target.value)}
+                className="programme"
+                placeholder="Enter programme"
+                value={optProgramme}
+                {...register("optProgramme")}
+                onChange={(e) => setOptProgramme(e.target.value)}
               />
             </div>
 
@@ -178,43 +195,52 @@ const Education = () => {
               </div>
             </div>
 
-            <div className="degree">
+            {/* <div className="edu-degree">
               <div className="input-wrapper">
                 <label>Degree</label>
                 <input
                   type="text"
                   className="degree"
-                  value={degree}
+                  value={optDegree}
                   placeholder="Enter degree"
                   {...register("optDegree")}
                   onChange={(e) => setOptDegree(e.target.value)}
                   style={{ width: "18em" }}
                 />
-              </div>
+              </div> */}
 
-              <div className="input-wrapper">
+              {/* <div className="input-wrapper">
                 <label>Field of Study</label>
                 <input
                   type="text"
-                  className="field-of-study"
+                  className="degree"
                   value={optFieldOfStudy}
                   placeholder="Enter field of study"
                   {...register("optfieldOfStudy")}
                   onChange={(e) => setOptFieldOfStudy(e.target.value)}
                   style={{ width: "18em" }}
                 />
-              </div>
-            </div>
+              </div> */}
 
-        
+              <div className="input-wrapper">
+              <label>Programme Description</label>
+              <textarea
+                type="text"
+                className="pro-description"
+                {...register("optProDescription")}
+                value={optProDescription}
+                placeholder="Enter programme description"
+                onChange={(e) => setOptProDescription(e.target.value)}
+              />
+            </div>
+           </div>
+            
             <div className="button-wrapper">
             <button className="back" onClick={handleBack}>
               back
             </button>
             <button className="continue">continue</button>
           </div>
-        </div>
-        </div>
         </div>
       </form>
     </>
