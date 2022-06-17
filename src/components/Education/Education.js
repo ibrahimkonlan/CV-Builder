@@ -1,144 +1,224 @@
-import { useState } from 'react'
-import React from 'react';
-import "./Education.Style.css"
+import { useState } from "react";
+import "./Education.Style.css";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import DatePicker from "@mui/lab/DatePicker";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import { Container } from "react-bootstrap";
+import { CVState } from "../../context/CVProvider";
 
-function Education() {
-  const [inputList, setinputList] = useState([{ institution: "", programme: "" }]);
-  const { handleSubmit } = useForm();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [check, setCheck] = useState(true);
 
-  const handleinputchange = (e, index) => {
-    const { Institution, value } = e.targe;
-    const list = [...inputList];
-    list[index][Institution] = value;
-    setinputList(list);
-  };
-  const handleremove = (index) => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setinputList(list);
-  };
+const Education = () => {
+  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate } = CVState()
+  const [schoolName, setSchoolName] = useState();
+  const [schoolLocation, setSchoolLocation] = useState();
+  const [degree, setDegree] = useState();
+  const [fieldOfStudy, setFieldOfStudy] = useState();
 
-  const handleaddclick = () => {
-    setinputList([...inputList, { Institution: "", programme: "" }]);
-  };
+  const [optSchoolName, setOptSchoolName] = useState();
+  const [optSchoolLocation, setOpSchoolLocation] = useState();
+  const [optDegree, setOptDegree] = useState();
+  const [optFieldOfStudy, setOptFieldOfStudy] = useState();
 
-  const handleCheck = (e) => {
-    setCheck(e.target.value);
+  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    reset()
   };
+  const handleBack = () => {
+    navigate("/work");
+  }
   return (
     <>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
-        <Container className="content">
-          <div className="row">
-            <div className="col-sm-12">
-              <h1 className="mt-3 mb-4 fw-bold">Education</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="content"> 
+        <h1 className="title-text">Education</h1>
 
-              {inputList.map((x, i) => {
-                return (
-                  <div className="row mb-3">
-                    <div className="col-mb-3">
-                      <label>Institution</label>
-                      <input
-                        type="text"
-                        name="Institution"
-                        className="form-control"
-                        placeholder="Enter Institution"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
-                    <div className="col-mb-3">
-                      <label>Programme</label>
-                      <input
-                        type="text"
-                        name="Programme"
-                        className="form-control"
-                        placeholder="Enter programme"
-                        onChange={(e) => handleinputchange(e, i)}
-                      />
-                    </div>
-                    <div className="col-mb-1">
-                      <div className="date">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                          <DatePicker
-                            label="Start date"
-                            value={startDate}
-                            onChange={(newValue) => {
-                              setStartDate(newValue);
-                            }}
-                            renderInput={(params) => <TextField {...params} />}
-                          />
-                        </LocalizationProvider>
-                      </div>
-                      <div className="date">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                          <DatePicker
-                            label="End date"
-                            value={endDate}
-                            onChange={(newValue) => {
-                              setEndDate(newValue);
-                            }}
-                            renderInput={(params) => <TextField {...params} />}
-                          />
-                        </LocalizationProvider>
-                      </div>
-                    </div>
-
-                    <div className="check">
-                      <FormGroup>
-                        <FormControlLabel
-                          control={
-                            <Checkbox value={check} onClick={handleCheck} />
-                          }
-                          label="Currently works here"
-                        />
-                      </FormGroup>
-                    </div>
-
-
-                      
-                  
-                    <div className=" col-md-2">
-                      {inputList.length !== 1 && (
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => handleremove(i)}
-                        >
-                          Remove
-                        </button>
-                      )}
-                      {inputList.length - 1 === i && (
-                        <button
-                          className="btn btn-success"
-                          onClick={handleaddclick}
-                        >
-                          Add
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        <div className="school-name-content1">
+        <div className="input-wrapper">
+        <label>school Name</label>
+          <input
+            type="text"
+             className="school-name"
+              value={schoolName}
+             placeholder="Enter school name"
+             {...register("schoolName")}
+             onChange={(e) => setSchoolName(e.target.value)} 
+          />
           </div>
-        </Container>
 
-        <input type="submit" />
+          <div className="input-wrapper">
+              <label>School Location</label>
+          <input
+          type="text"
+          className="School Location"
+          value={schoolLocation}
+          placeholder="Enter School Location"
+          {...register("school location")}
+          onChange={(e) => setSchoolLocation(e.target.value)}
+        />
+      </div>
+
+      <div className="date-wrapper">
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Start date"
+                    value={startDate}
+                    onChange={(newValue) => {
+                      setStartDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="End date"
+                    value={endDate}
+                    onChange={(newValue) => {
+                      setEndDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+            </div>
+
+            <div className="degree">
+              <div className="input-wrapper">
+                <label>Degree</label>
+                <input
+                  type="text"
+                  className="degree"
+                  value={degree}
+                  placeholder="Enter degree"
+                  {...register("degree")}
+                  onChange={(e) => setDegree(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+
+              <div className="input-wrapper">
+                <label>Field Of Study</label>
+                <input
+                  type="text"
+                  className="country"
+                  value={setFieldOfStudy}
+                  placeholder="Enter field of study"
+                  {...register("fieldOfStudy")}
+                  onChange={(e) => setFieldOfStudy(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+            </div>
+        
+        <div className="school-name-content2">
+        <div className="input-wrapper">
+              <label>School Name</label>
+              <input
+                type="text"
+                className="school-name"
+                placeholder="Enter school name"
+                value={optSchoolName}
+                {...register("optSchoolName")}
+                onChange={(e) => setOptSchoolName(e.target.value)}
+              />
+            </div>
+
+            <div className="input-wrapper">
+              <label>School Location</label>
+              <input
+                type="text"
+                className="school-location"
+                value={optSchoolLocation}
+                placeholder="Enter school location"
+                {...register("optShoolLocation")}
+                onChange={(e) => setOpSchoolLocation(e.target.value)}
+              />
+            </div>
+
+            <div className="date-wrapper">
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Start date"
+                    value={optStartDate}
+                    onChange={(newValue) => {
+                      setOptStartDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+
+              <div className="date">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="End date"
+                    value={optEndDate}
+                    onChange={(newValue) => {
+                      setOptEndDate(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField {...params} sx={{ width: "18em" }} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+            </div>
+
+            <div className="degree">
+              <div className="input-wrapper">
+                <label>Degree</label>
+                <input
+                  type="text"
+                  className="degree"
+                  value={degree}
+                  placeholder="Enter degree"
+                  {...register("optDegree")}
+                  onChange={(e) => setOptDegree(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+
+              <div className="input-wrapper">
+                <label>Field of Study</label>
+                <input
+                  type="text"
+                  className="field-of-study"
+                  value={optFieldOfStudy}
+                  placeholder="Enter field of study"
+                  {...register("optfieldOfStudy")}
+                  onChange={(e) => setOptFieldOfStudy(e.target.value)}
+                  style={{ width: "18em" }}
+                />
+              </div>
+            </div>
+
+        
+            <div className="button-wrapper">
+            <button className="back" onClick={handleBack}>
+              back
+            </button>
+            <button className="continue">continue</button>
+          </div>
+        </div>
+        </div>
+        </div>
       </form>
     </>
   );
 }
 
-
-export default Education
+export default Education;

@@ -1,133 +1,253 @@
-.CV-container{
-    width: 40em;
-    height: 120vh;
-    margin: 4em auto;
-    display: flex;
-    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.15);
+
+.CV-container {
+  width: 50em;
+  height: 60em;
+  margin: 4em auto;
+  display: flex;
+  box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.15);
 }
-.white-background{
-    width: 60%;
-    height: 120vh;
+.white-background {
+  width: 60%;
+  height: 60em;
 }
-.purple-background{
-    width: 40%;
-    height: 120vh;
-    background-color: #9a7dd9;
+.purple-background {
+  width: 40%;
+  height: 60em;
+  background-color: #9a7dd9;
 }
-.image-text-wrapper{
-    width: 100%;
-    height: 40vh;
+.image-text-wrapper {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+}
+.profile-image {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container {
+  width: 100%;
+  height: 80%;
+}
+.details-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-pic {
+  max-height: 100%;
+  border-radius: 50px;
+}
+.fullname-container {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1em;
+}
+.first-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9a7dd9;
+}
+.last-name {
+  font-size: 1.3em;
+  color: #6b6a6d;
+}
+.current-work {
+  width: 100%;
+  font-size: 1.3em;
+  color: #6b6a6d;
+}
+.work {
+  font-size: 0.5em;
+  color: #6b6a6d;
+  margin-left: 0.4em;
+}
+.sub-detail {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.3em;
+  color: #9a7dd9;
+}
+.mobile {
+  margin-top: 1em;
+  font-size: 0.5em;
+  color: #6b6a6d;
+}
+.email-detail {
+  width: 100%;
+  font-size: em;
+  height: 1vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.1em;
+}
+.contact-email {
+  font-size: 0.6em;
+  color: #6b6a6d;
+  margin-right: em;
+}
+.detail {
+  width: 100%;
+  font-size: em;
+  color: #a792d2;
+  height: vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.1em;
+}
+.sub-address {
+  font-size: 0.6em;
+  color: #6b6773;
+  margin-top: em;
+  height: 1em;
+  margin-right: 11em;
+}
+.country-map {
+  /* width: 100%; */
+  font-size: 0.8em;
+  color: #826d79;
+  height: 1vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.4em;
+  margin-left: 0.6em;
+}
+.country-code {
+  font-size: 0.6em;
+  color: #6b6773;
+  margin-top: em;
+  height: 1em;
+  margin-right: 11em;
+}
+.work-experience-wrapper {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 16em;
+  height: 3vh;
+  margin-left: 6em;
+}
+.edu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  width: 12em;
+  height: 8vh;
+  margin-left: 6em;
+}
+.icon {
+  background-color: #9a7dd9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
+}
+h3 {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #9a7dd9;
+}
+.education-wrapper {
+  border: 1px solid green;
+  width: 100%;
+  height: 40vh;
+}
+.hobbies-wrapper {
+  border: 1px solid blue;
+  width: 100%;
+  height: 24vh;
+}
+.hobby-title {
     display: flex;
     justify-content: space-between;
-}
-.profile-image{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-.image-container{
+    border: 1px solid red;
+    width: 20em;
+    height: 8vh;
+    margin-left: 6em;
+  }
+  .career-obj{
+    border: 1px solid red;
     width: 100%;
-    height: 80%;
-}
-.details-container{
-    width: 50%;
-    height: 100%;
+    height: 50vh;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
-}
-.profile-pic{
-    max-height: 100%;
-    border-radius: 50px;
-}
-.fullname-container{
-    width: 100%;
-    height: 6vh;
+    justify-content: space-between;
+  }
+  .career-text{
+    width: 80%;
+    height: 40vh;
+    border: 1px solid blue;
+    margin-left: 2em;
+  }
+  .work-info {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+  }
+  .work-details {
+    width: 50%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 1em;
-}
-.first-name{
-    font-size: 1.5em;
+    margin-left: 2.5em;
+  }
+  .work-date{
+    font-size: 0.5em;
+  }
+  .position {
+    font-size: 0.8em;
     font-weight: bold;
-    color: #9a7dd9;
-}
-.last-name{
-    font-size: 1.3em;
-    color: #6b6a6d;
-}
-.current-work{
-    width: 100%;
-    font-size: 1.3em;
-    color: #6b6a6d;
-}
-.work{
-    font-size: 0.5em;
-    color: #6b6a6d;
-    margin-left: 0.4em;
-}
-.sub-detail{
-    width: 60%;
+    margin-top: 0.7em;
+  }
+  .employer-count-wrapper {
+    width: 58%;
+    height: 3vh;
+    font-size: 0.8em;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    font-size: 1.3em;
-    color: #9a7dd9;
-}
-.mobile{
+    margin-left: 9.5em;
+  }
+  .employer {
+    font-size: 0.8em;
+    height: 3vh;
+  }
+  .state {
+    font-size: 0.8em;
+  }
+  .country {
+    font-size: 0.8em;
+    height: 3vh;
+  }
+  .work-desc {
+    font-size: 0.8em;
+    height: 8vh;
+    width: 80%;
+    text-align: justify;
+    margin-left: 9.5em;
     margin-top: 1em;
-    font-size: 0.5em;
-    color: #6b6a6d;
-}
-.email-detail{
-     width: 100%;
-     font-size: em;
-     height: 1vh;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     margin-top: 0.1em;
-}
-.contact-email{
-    font-size: 0.6em;
-    color: #6b6a6d;
-    margin-right: em;  
-}
- .detail{
-    width: 100%;
-     font-size: em;
-     color: #a792d2;
-     height: vh;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     margin-top: 0.1em;
- }
- .sub-address{
-    font-size: 0.6em;
-    color: #6b6773;
-    margin-top: em;
-    height: 1em;
-    margin-right: 11em;
-}
-.country-map{
-    /* width: 100%; */
-     font-size: 0.8em;
-     color: #826d79;
-     height: 1vh;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     margin-top: 0.4em;
-     margin-left: 0.6em; 
-}
-.country-code{
-    font-size: 0.6em;
-    color: #6b6773;
-    margin-top: em;
-    height: 1em;
-    margin-right: 11em;
-     
-}
+  }
