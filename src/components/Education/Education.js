@@ -10,7 +10,7 @@ import { CVState } from "../../context/CVProvider";
 
 
 const Education = () => {
-  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate } = CVState()
+  const {  data, startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate, education, setEducation } = CVState()
   const [programme, setProgramme] = useState();
   const [schoolLocation, setSchoolLocation] = useState();
   // const [degree, setDegree] = useState();
@@ -23,11 +23,13 @@ const Education = () => {
   // const [optDegree, setOptDegree] = useState();
   // const [optFieldOfStudy, setOptFieldOfStudy] = useState();
   const [optProDescription, setOptProDescription] = useState();
+  const [interests, setInterests] = useState();
 
 
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    setEducation(data);
    navigate("/cvpage")
     reset()
   };
@@ -144,7 +146,7 @@ const Education = () => {
               <input
                 type="text"
                 className="programme"
-                placeholder="Enter programme"
+                placeholder="Add programme"
                 value={optProgramme}
                 {...register("optProgramme")}
                 onChange={(e) => setOptProgramme(e.target.value)}
@@ -157,7 +159,7 @@ const Education = () => {
                 type="text"
                 className="school-location"
                 value={optSchoolLocation}
-                placeholder="Enter school location"
+                placeholder="Add school location"
                 {...register("optShoolLocation")}
                 onChange={(e) => setOpSchoolLocation(e.target.value)}
               />
@@ -229,8 +231,18 @@ const Education = () => {
                 className="pro-description"
                 {...register("optProDescription")}
                 value={optProDescription}
-                placeholder="Enter programme description"
+                placeholder="Add programme description"
                 onChange={(e) => setOptProDescription(e.target.value)}
+              />
+
+              <label class="interests">Interests</label>
+              <textarea
+                type="text"
+                className="pro-description"
+                {...register("interests")}
+                value={interests}
+                placeholder="Add your interests"
+                onChange={(e) => setInterests(e.target.value)}
               />
             </div>
            </div>
