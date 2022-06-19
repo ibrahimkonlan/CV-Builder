@@ -161,9 +161,9 @@ textarea {
   outline-color: #7640eb;
   padding-left: 1em;
 }
-p {
+/* p {
   color: #bd0808;
-}
+} */
 
 p::before {
   display: inline;

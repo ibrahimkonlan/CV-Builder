@@ -15,12 +15,14 @@ const personalSchema = yup.object().shape({
   address: yup.string(),
   country: yup.string(),
   careerObjective: yup.string(),
+  image: yup.mixed()
 });
+
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState({});
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState(0);
@@ -40,9 +42,10 @@ const PersonalDetails = () => {
     resolver: yupResolver(personalSchema),
   });
 
-  
 
   const onSubmit = (data) => {
+    data['image'] = image;
+    data['careerObjective'] = careerObjective;
     setData(data)
     reset();
     navigate("/work")
@@ -62,7 +65,7 @@ const PersonalDetails = () => {
         <div className="personal-details">
           <div className="image-upload">
             <h3>upload your image</h3>
-            <input type="file" {...register("image")} onChange={(e) => {setImage(URL.createObjectURL(e.target.files[0]))}}/>
+            <input type="file" onChange={(e) => {setImage(URL.createObjectURL(e.target.files[0]))}}/>
           </div>
           <div className="details-wrapper">
             <div className="fullname">
@@ -72,7 +75,7 @@ const PersonalDetails = () => {
                   placeholder="First Name"
                   {...register("firstName")}
                   value={firstName}
-                  onChange={(e) => {
+                  onChange={(e) => {console.log(image)
                     setFirstName(e.target.value);
                   }}
                 />

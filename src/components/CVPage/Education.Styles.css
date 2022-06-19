@@ -1,0 +1,25 @@
+.education-component {
+    text-align: left;
+    display: flex;
+    color: gray;
+}
+
+
+.dot {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    background-color: blue;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.course-name {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.school p {
+    margin-top: 0;
+}

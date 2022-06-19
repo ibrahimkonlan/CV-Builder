@@ -10,7 +10,8 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { CVState } from "../../context/CVProvider";
 
 function WorkExperience() {
-  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate } = CVState()
+  console.log(CVState.data)
+  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate, data } = CVState()
   const navigate = useNavigate();
   const { setWorkExperience } = CVState();
   const [jobTitle, setJobTitle] = useState();
@@ -18,6 +19,7 @@ function WorkExperience() {
   const [city, setCity] = useState();
   const [country, setCountry] = useState();
   const [jobDescription, setJobDescription] = useState();
+  // console.log(data)
 
   const [optJobTitle, setOptJobTitle] = useState();
   const [optEmployer, setOptEmployer] = useState();
@@ -33,7 +35,7 @@ function WorkExperience() {
 
   const onSubmit = (data) => {
     setWorkExperience(data);
-    navigate("/cvpage")
+    navigate("/education")
     reset();
   };
 

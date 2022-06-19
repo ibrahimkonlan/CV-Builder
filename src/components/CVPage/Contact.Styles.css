@@ -1,0 +1,15 @@
+.contact-component {
+    text-align: left;
+    color: gray;
+    line-height: 1.2em;
+    width: 100%;
+}
+
+.first-name {
+   color: blue; 
+}
+
+.role {
+    text-transform: uppercase;
+    margin-bottom: 2%;
+}

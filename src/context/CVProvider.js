@@ -9,10 +9,11 @@ const CVProvider = ({ children }) => {
   const [endDate, setEndDate] = useState();
   const [optStartDate, setOptStartDate] = useState();
   const [optEndDate, setOptEndDate] = useState();
+  const [education, setEducation] = useState({});
 
 
   return (
-    <CVContext.Provider value={{ data, setData, workExperience, setWorkExperience, startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate }}>
+    <CVContext.Provider value={{ data, setData, workExperience, setWorkExperience, education, setEducation, startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate }}>
       {children}
     </CVContext.Provider>
   );
