@@ -1,25 +1,24 @@
 import React from "react";
 import "./CVPage.Style.css";
 import { CVState } from "../../context/CVProvider";
-import {
-  AiFillPhone,
-  AiOutlineMail,
-  AiFillIdcard,
-  AiFillEnvironment,
-} from "react-icons/ai";
-import { MdWork } from "react-icons/md";
-import { GiGraduateCap } from "react-icons/gi";
-import { MdLocalPlay } from "react-icons/md";
-import { FaQuoteLeft } from "react-icons/fa";
-import { CgShapeCircle } from "react-icons/cg";
-import Education from "../Education/Education";
+// import {
+//   AiFillPhone,
+//   AiOutlineMail,
+//   AiFillIdcard,
+//   AiFillEnvironment,
+// } from "react-icons/ai";
+// import { MdWork } from "react-icons/md";
+// import { GiGraduateCap } from "react-icons/gi";
+// import { MdLocalPlay } from "react-icons/md";
+// import { FaQuoteLeft } from "react-icons/fa";
+// import { CgShapeCircle } from "react-icons/cg";
+// import Education from "../Education/Education";
 import Contact from "./Contact"
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
-import Skills from "../Skills/Skills";
 
 const CVPage = () => {
-  const { data, workExperience, careerObjective, startDate, endDate, optStartDate, optEndDate, education, skills } = CVState();
+  const { data, workExperience, education, skills } = CVState();
   // console.log(careerObjective);
   // console.log(data);
   // console.log(workExperience);
