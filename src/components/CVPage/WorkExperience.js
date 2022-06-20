@@ -6,9 +6,9 @@ const WorkExperience = (props) => {
             <div className="year">{props.year}</div>
             <div className="dot"></div>
             <div className="work">
-                <p className="work-title">{props.jobTitle}</p>
-                <p className="work-place">{props.employer}</p>
-                <p className="work-description">{props.jobDescription}</p>
+                <h6 className="work-title">{props.jobTitle}</h6>
+                <h6 className="work-place">{props.employer}</h6>
+                <h6 className="work-description">{props.jobDescription}</h6>
             </div>
         </div>
     )

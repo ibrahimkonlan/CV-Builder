@@ -1,11 +1,15 @@
 .cv-page-component {
     display: flex;
     justify-content: space-between;
+    /* margin-left: 10em;
+    border-radius: 1px red; */
 }
 .left {
     width: 68%;
 }
-
+.full-name{
+    width: 30em;
+}
 .details {
     width: 60%;
     justify-content: center;
@@ -37,8 +41,9 @@
 
 .right {
     width: 30%;
-    height: 125vh;
+    height: 100vh;
     background-color: rgb(35, 37, 129);
+    margin-right: 5em;
 }
 
 .career-objective {
@@ -52,4 +57,9 @@
 .interests-p {
     margin-top: 0;
     margin-left: 5%
+}
+.proskills-section{
+    color: white;
+    padding: 20%;
+    height: 15vh;
 }

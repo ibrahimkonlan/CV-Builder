@@ -1,0 +1,33 @@
+.proskill{
+    width: 40em;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+.skill{
+    width: 60%;
+}
+.skill-level{
+    border-radius: 5px;
+    width: 15em;
+    height: 8vh;
+    outline-color: #7640eb;
+    padding-left: 1em;
+}
+.proskills-wrapper{
+    width: 45em;
+    height: 50vh;
+    border: 3px solid #7640eb;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.proskills-wrapper label{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0.5em ;
+    margin-bottom: 1em;
+
+}

@@ -13,7 +13,7 @@ import { CVState } from "../../context/CVProvider";
 // import { FaQuoteLeft } from "react-icons/fa";
 // import { CgShapeCircle } from "react-icons/cg";
 // import Education from "../Education/Education";
-import Contact from "./Contact"
+import Contact from "./Contact";
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
 
@@ -26,10 +26,13 @@ const CVPage = () => {
   // console.log(endDate);
   // console.log(optStartDate);
   // console.log(optEndDate);
-  console.log(education)
-  console.log(skills)
+  console.log(education);
+
+
+  
 
   return (
+    
     <div className="cv-page-component">
       <div className="left">
         <div className="details">
@@ -38,23 +41,23 @@ const CVPage = () => {
           </div>
           <div className="profile-details">
             <Contact
-                firstName ={data.firstName}
-                lastName={data.lastName}
-                currentJob={data.currentJob}
-                phone={data.phone}
-                email={data.email}
-                address={data.address}
-                country={data.country}
-              />
+              firstName={data.firstName}
+              lastName={data.lastName}
+              currentJob={data.currentJob}
+              phone={data.phone}
+              email={data.email}
+              address={data.address}
+              country={data.country}
+            />
           </div>
         </div>
 
         <div className="heading">
           <h2>Work Experience</h2>
         </div>
-        
+
         <div className="work-experience">
-          <WorkExperience 
+          <WorkExperience
             jobTitle={workExperience.jobTitle}
             employer={workExperience.employer}
             jobDescription={workExperience.jobDescription}
@@ -67,26 +70,37 @@ const CVPage = () => {
 
         <div className="education">
           <EducationSection
-            date={education.date} 
-            programme={education.programme} 
-            proDescription={education.proDescription} 
+            date={education.date}
+            programme={education.programme}
+            proDescription={education.proDescription}
           />
         </div>
 
         <div className="heading">
           <h2>Hobbies And Interests</h2>
         </div>
-        <p className="interests-p">{education.interests}</p>
-      </div>
-      <div className="right">
-        <div className="career-objective">{data.careerObjective}</div>
+        <h6 className="interests-p">{education.interests}</h6>
       </div>
 
-      <div className="heading">
+      <div className="right">
+        <div className="career-objective">{data.careerObjective}</div>
+
+        <div className="proskills-section">
           <h2>ProSkills</h2>
+          <div className="skill-wrapper">
+            <div className="skill-content">
+              <div className="skill-name"></div>
+              <div className="skill-level">
+
+                
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <p className="proSkills">{skills.proSkills}</p>
+
+
+
+      </div>
     </div>
   );
 };

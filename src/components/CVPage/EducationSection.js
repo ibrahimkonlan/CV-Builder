@@ -5,8 +5,8 @@ const EducationSection = (props) => {
         <div className="year">{props.date}</div>
         <div className="dot"></div>
         <div className="school">
-            <p className="course-name">{props.programme}</p>
-            <p className="courses-additions">{props.proDescription}</p>
+            <h6 className="course-name">{props.programme}</h6>
+            <h6 className="courses-additions">{props.proDescription}</h6>
         </div>
     </div>
   )

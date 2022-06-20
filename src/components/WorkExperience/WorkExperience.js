@@ -10,7 +10,6 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { CVState } from "../../context/CVProvider";
 
 function WorkExperience() {
-  console.log(CVState.data)
   const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate, data } = CVState()
   const navigate = useNavigate();
   const { setWorkExperience } = CVState();

@@ -235,7 +235,7 @@ const Education = () => {
                 onChange={(e) => setOptProDescription(e.target.value)}
               />
 
-              <label class="interests">Interests</label>
+              <label className="interests">Interests</label>
               <textarea
                 type="text"
                 className="pro-description"
