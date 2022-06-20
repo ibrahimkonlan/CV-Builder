@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Skills = () => {
   const [proSkills, setProproSkills] = useState();
   const [personaSkills, setpersonalskills] = useState();
-  // const [proDescription, setProDescription] = useState();
+  const [FollowMe, setFollowMe] = useState();
 
 
   const navigate = useNavigate();
@@ -52,8 +52,18 @@ const Skills = () => {
                 onChange={(e) => setpersonalskills(e.target.value)}
               />
             </div>
+            <div className="input-wrapper">
+              <label>Follow Me</label>
+              <textarea
+                type="text"
+                className="personal-skills"
+                {...register("FollowMe")}
+                value={FollowMe}
+                placeholder="Follow here"
+                onChange={(e) => setFollowMe(e.target.value)}
+              />
            </div>
-            
+            </div>
             <div className="button-wrapper">
             <button className="back" onClick={handleBack}>
               back

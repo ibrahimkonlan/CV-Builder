@@ -1,24 +1,24 @@
 import React from "react";
 import "./CVPage.Style.css";
 import { CVState } from "../../context/CVProvider";
-import {
-  AiFillPhone,
-  AiOutlineMail,
-  AiFillIdcard,
-  AiFillEnvironment,
-} from "react-icons/ai";
-import { MdWork } from "react-icons/md";
-import { GiGraduateCap } from "react-icons/gi";
-import { MdLocalPlay } from "react-icons/md";
-import { FaQuoteLeft } from "react-icons/fa";
-import { CgShapeCircle } from "react-icons/cg";
-import Education from "../Education/Education";
+// import {
+//   AiFillPhone,
+//   AiOutlineMail,
+//   AiFillIdcard,
+//   AiFillEnvironment,
+// } from "react-icons/ai";
+// import { MdWork } from "react-icons/md";
+// import { GiGraduateCap } from "react-icons/gi";
+// import { MdLocalPlay } from "react-icons/md";
+// import { FaQuoteLeft } from "react-icons/fa";
+// import { CgShapeCircle } from "react-icons/cg";
+// import Education from "../Education/Education";
 import Contact from "./Contact"
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
 
 const CVPage = () => {
-  const { data, workExperience, careerObjective, startDate, endDate, optStartDate, optEndDate, education } = CVState();
+  const { data, workExperience, education, skills } = CVState();
   // console.log(careerObjective);
   // console.log(data);
   // console.log(workExperience);
@@ -27,6 +27,7 @@ const CVPage = () => {
   // console.log(optStartDate);
   // console.log(optEndDate);
   console.log(education)
+  console.log(skills)
 
   return (
     <div className="cv-page-component">
@@ -80,6 +81,12 @@ const CVPage = () => {
       <div className="right">
         <div className="career-objective">{data.careerObjective}</div>
       </div>
+
+      <div className="heading">
+          <h2>ProSkills</h2>
+        </div>
+        
+        <p className="proSkills">{skills.proSkills}</p>
     </div>
   );
 };

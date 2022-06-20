@@ -10,7 +10,7 @@ import { CVState } from "../../context/CVProvider";
 
 
 const Education = () => {
-  const {  data, startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate, education, setEducation } = CVState()
+  const { startDate, setStartDate, endDate, setEndDate, optStartDate, setOptStartDate, optEndDate, setOptEndDate, education, setEducation } = CVState()
   const [programme, setProgramme] = useState();
   const [schoolLocation, setSchoolLocation] = useState();
   // const [degree, setDegree] = useState();
