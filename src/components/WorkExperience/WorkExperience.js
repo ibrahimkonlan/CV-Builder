@@ -33,6 +33,7 @@ function WorkExperience() {
   };
 
   const onSubmit = (data) => {
+    console.log(data)
     setWorkExperience(data);
     navigate("/education")
     reset();
@@ -75,6 +76,7 @@ function WorkExperience() {
                   <DatePicker
                     label="Start date"
                     value={startDate}
+                    {...register("startDate")}
                     onChange={(newValue) => {
                       setStartDate(newValue);
                     }}
@@ -90,6 +92,7 @@ function WorkExperience() {
                   <DatePicker
                     label="End date"
                     value={endDate}
+                    {...register("endDate")}
                     onChange={(newValue) => {
                       setEndDate(newValue);
                     }}
@@ -173,6 +176,7 @@ function WorkExperience() {
                   <DatePicker
                     label="Start date"
                     value={optStartDate}
+                    {...register("optStartDate")}
                     onChange={(newValue) => {
                       setOptStartDate(newValue);
                     }}
@@ -188,6 +192,7 @@ function WorkExperience() {
                   <DatePicker
                     label="End date"
                     value={optEndDate}
+                    {...register("optEndDate")}
                     onChange={(newValue) => {
                       setOptEndDate(newValue);
                     }}

@@ -30,7 +30,7 @@ const Education = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     setEducation(data);
-   navigate("/cvpage")
+   navigate("/skills")
     reset()
   };
   

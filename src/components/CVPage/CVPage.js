@@ -16,6 +16,7 @@ import { CVState } from "../../context/CVProvider";
 import Contact from "./Contact";
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
+import SkillsSection from "./SkillsSection";
 
 const CVPage = () => {
   const { data, workExperience, education, skills } = CVState();
@@ -26,7 +27,7 @@ const CVPage = () => {
   // console.log(endDate);
   // console.log(optStartDate);
   // console.log(optEndDate);
-  console.log(education);
+  console.log(skills);
 
 
   
@@ -37,7 +38,7 @@ const CVPage = () => {
       <div className="left">
         <div className="details">
           <div className="profile-image">
-            <img className="profile-pic" src={data.image} alt="" />
+            {data.image && <img className="profile-pic" src={data.image} alt="" />}
           </div>
           <div className="profile-details">
             <Contact
@@ -58,9 +59,16 @@ const CVPage = () => {
 
         <div className="work-experience">
           <WorkExperience
+            year={`${workExperience.startDate} - ${workExperience.endDate}`}
             jobTitle={workExperience.jobTitle}
             employer={workExperience.employer}
             jobDescription={workExperience.jobDescription}
+          />
+          <WorkExperience 
+            year={`${workExperience.optStartDate} - ${workExperience.optEndDate}`}
+            jobTitle={workExperience.optJobTitle}
+            employer={workExperience.optEmployer}
+            jobDescription={workExperience.optJobDescription}
           />
         </div>
 
@@ -79,27 +87,34 @@ const CVPage = () => {
         <div className="heading">
           <h2>Hobbies And Interests</h2>
         </div>
-        <h6 className="interests-p">{education.interests}</h6>
+        <p className="interests-p">{education.interests}</p>
       </div>
 
       <div className="right">
         <div className="career-objective">{data.careerObjective}</div>
 
-        <div className="proskills-section">
+        <div className="left-heading">
           <h2>ProSkills</h2>
-          <div className="skill-wrapper">
-            <div className="skill-content">
-              <div className="skill-name"></div>
-              <div className="skill-level">
-
-                
-              </div>
-            </div>
-          </div>
         </div>
 
-
-
+        <div className="proskills-section">
+          <SkillsSection
+            skill={skills.skillOne} 
+            level={skills.skillOnelevel} 
+          />
+          <SkillsSection
+            skill={skills.skillTwo} 
+            level={skills.skillTwolevel} 
+          />
+          <SkillsSection
+            skill={skills.skillThree} 
+            level={skills.skillThreelevel} 
+          />
+          <SkillsSection
+            skill={skills.skillFour} 
+            level={skills.skillFourlevel} 
+          />
+        </div>
       </div>
     </div>
   );

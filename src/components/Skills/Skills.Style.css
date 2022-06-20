@@ -17,7 +17,6 @@
 .proskills-wrapper{
     width: 45em;
     height: 50vh;
-    border: 3px solid #7640eb;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -30,4 +29,8 @@
     margin-top: 0.5em ;
     margin-bottom: 1em;
 
+}
+.personal-wrapper {
+    display: flex;
+    flex-direction: column;
 }
