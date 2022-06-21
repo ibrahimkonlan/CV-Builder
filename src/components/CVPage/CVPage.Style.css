@@ -7,6 +7,8 @@
 
 .left-heading {
     color:white;
+    margin-left: 2.5em;
+    margin-block: 2vh;
 }
 
 .left {
@@ -46,7 +48,7 @@
 
 .right {
     width: 30%;
-    height: 100vh;
+    height: 140vh;
     background-color: rgb(35, 37, 129);
     margin-right: 5em;
 }
@@ -73,4 +75,5 @@
     border: 5px  red;
     margin-left: 1em;
 }
+
 
