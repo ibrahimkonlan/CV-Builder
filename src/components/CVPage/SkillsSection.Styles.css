@@ -1,0 +1,20 @@
+.skill-dot {
+    height: 8px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin-inline: 5px;
+}
+
+.skill-wrapper {
+    display: flex;
+}
+
+.skill {
+    display: block;
+}
+
+.skills-section-component {
+    margin-left: 2.5em;
+    margin-bottom: 5vh;
+}

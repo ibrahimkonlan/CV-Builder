@@ -6,7 +6,7 @@ const WorkExperience = (props) => {
             <div className="year">{props.year}</div>
             <div className="dot"></div>
             <div className="work">
-                <p className="work-title">{props.jobTitle}</p>
+                <h6 className="work-title">{props.jobTitle}</h6>
                 <p className="work-place">{props.employer}</p>
                 <p className="work-description">{props.jobDescription}</p>
             </div>

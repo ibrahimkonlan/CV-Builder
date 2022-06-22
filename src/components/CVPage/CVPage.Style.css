@@ -1,11 +1,26 @@
 .cv-page-component {
     display: flex;
     justify-content: space-between;
+     margin-left: 10em; 
+     margin-right: 12em;
+     font-size: 12px;
+     /* padding-top: 20px; */
+    /* border: 1px solid salmon; */
+    background-color: #7640eb0f;
 }
+
+.left-heading {
+    color:rgb(255, 255, 255);
+    margin-left: 2.5em;
+    margin-block: 2vh;
+}
+
 .left {
     width: 68%;
 }
-
+.full-name{
+    width: 30em;
+}
 .details {
     width: 60%;
     justify-content: center;
@@ -19,26 +34,34 @@
 }
 
 .profile-pic {
-    height: 30vh;
+    height: 22vh;
     border-radius: 50%;
-    margin-left: 10%;
+    margin-left: 8%;
     margin-right: 10%;
 }
 .heading {
     color: blue;
-    margin: 3%;
+    margin: 5%;
     text-transform: uppercase;
+    margin-left: 15%;
 }
 
-.work-experience, .education { 
+.work-experience { 
     width:100%;
-    margin-left: 5%;
+    margin-left: 3%;
+}
+.education{
+    font-size: 12px;
+    width:100%;
+    margin-left: 3% 
+    
 }
 
 .right {
-    width: 30%;
-    height: 125vh;
+    width: 40%;
+    height: 124vh;
     background-color: rgb(35, 37, 129);
+    /* margin-right: 0.em; */
 }
 
 .career-objective {
@@ -52,4 +75,18 @@
 .interests-p {
     margin-top: 0;
     margin-left: 5%
+}
+.proskills-section{
+    color: white;
+    text-align: left;
+    /* padding: 20%; */
+    /* height: 15vh; */
+}
+.left{
+    /* border: 5px  red; */
+    margin-left: 1em;
+}
+.personal {
+    color: white;
+    margin-left: 5%;
 }

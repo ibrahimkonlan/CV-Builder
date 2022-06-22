@@ -2,6 +2,7 @@
     text-align: left;
     display: flex;
     color: gray;
+    margin-left: 1em;
 }
 
 
@@ -31,4 +32,8 @@
 
 .work-place {
     font-size: 1em;
+}
+
+.h2 {
+  font-size: 10rem;
 }

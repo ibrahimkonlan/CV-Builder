@@ -43,7 +43,7 @@ const Navigation = () => {
             >
               Education
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="interest"
               style={({ isActive }) => ({
                 color: isActive ? "white" : "rgba(255, 255, 255, 0.6)",
@@ -51,7 +51,7 @@ const Navigation = () => {
               })}
             >
               Interests
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="skills"
               style={({ isActive }) => ({

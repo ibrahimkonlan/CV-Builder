@@ -30,7 +30,7 @@ const Education = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     setEducation(data);
-   navigate("/cvpage")
+   navigate("/skills")
     reset()
   };
   
@@ -235,13 +235,13 @@ const Education = () => {
                 onChange={(e) => setOptProDescription(e.target.value)}
               />
 
-              <label class="interests">Interests</label>
+              <label className="interests">Interests</label>
               <textarea
                 type="text"
                 className="pro-description"
                 {...register("interests")}
                 value={interests}
-                placeholder="Add your interests"
+                placeholder="Enter your interests"
                 onChange={(e) => setInterests(e.target.value)}
               />
             </div>
