@@ -18,6 +18,7 @@ import Contact from "./Contact";
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
 import SkillsSection from "./SkillsSection";
+import Printer from "../Printer/Printer";
 
 const CVPage = () => {
   const { data, workExperience, education, skills } = CVState();
@@ -28,7 +29,7 @@ const CVPage = () => {
   // console.log(endDate);
   // console.log(optStartDate);
   // console.log(optEndDate);
-  console.log(skills);
+  console.log(data);
 
 
   
@@ -38,8 +39,8 @@ const CVPage = () => {
     <div className="cv-page-component">
       <div className="left">
         <div className="details">
-          <div className="profile-image">
-            {data.image && <img className="profile-pic" src={data.image} alt="" />}
+         <div className="profile-image">
+         {data.image &&<img className="profile-pic" src={data.image} alt="" />}
           </div>
           <div className="profile-details">
             <Contact
@@ -54,79 +55,87 @@ const CVPage = () => {
           </div>
         </div>
 
-        <div className="heading">
+        {(workExperience.jobTitle || workExperience.optJobTitle) && <div className="heading">
           <h5>Work Experience</h5>
-        </div>
+        </div>}
 
         <div className="work-experience">
-          <WorkExperience
+          {workExperience.jobTitle && <WorkExperience
             year={`${workExperience.startDate} - ${workExperience.endDate}`}
             jobTitle={workExperience.jobTitle}
             employer={workExperience.employer}
             jobDescription={workExperience.jobDescription}
-          />
-          <WorkExperience 
+          />}
+          {workExperience.optJobTitle &&<WorkExperience 
             year={`${workExperience.optStartDate} - ${workExperience.optEndDate}`}
             jobTitle={workExperience.optJobTitle}
             employer={workExperience.optEmployer}
             jobDescription={workExperience.optJobDescription}
-          />
+          />}
         </div>
 
-        <div className="heading">
+        {(education.programme || education.optProgramme) && <div className="heading">
           <h5>Education</h5>
-        </div>
+        </div>}
 
         <div className="education">
-          <EducationSection
+          {education.programme  &&<EducationSection
              year={`${education.startDate} - ${education.endDate}`}
             programme={education.programme}
             proDescription={education.proDescription}
-          />
-          <EducationSection
+          />}
+          {education.optProgramme &&<EducationSection
           year={`${education.startDate} - ${education.optEndDate}`}
           programme={education.optProgramme}
           proDescription={education.optProDescription}
-            />
+            />}
         </div>
 
-        <div className="heading">
+        {education.interests &&<div className="heading">
           <h5>Hobbies And Interests</h5>
-        </div>
-        <p className="interests-p">{education.interests}</p>
+          <p className="interests-p">{education.interests}</p>
+        </div>}
       </div>
 
       <div className="right">
-        <div className="career-objective">{data.careerObjective}</div>
+        { data.careerObjective && <div className="career-objective">{data.careerObjective}</div>}
 
-        <div className="left-heading">
+        {(skills.skillOne ||skills.skillTwo || skills.skillThree || skills.skillFour) &&<div className="left-heading">
           <h2>ProSkills</h2>
-        </div>
+        </div>}
 
         <div className="proskills-section">
-          <SkillsSection
+          {skills.skillOne &&<SkillsSection
             skill={skills.skillOne} 
             level={skills.skillOnelevel} 
-          />
-          <SkillsSection
+          />}
+          {skills.skillTwo && <SkillsSection
             skill={skills.skillTwo} 
             level={skills.skillTwolevel} 
-          />
-          <SkillsSection
+          />}
+          {skills.skillThree && <SkillsSection
             skill={skills.skillThree} 
             level={skills.skillThreelevel} 
-          />
-          <SkillsSection
+          />}
+          {skills.skillFour && <SkillsSection
             skill={skills.skillFour} 
             level={skills.skillFourlevel} 
-          />
+          />}
         </div>
 
-        <div className="personal">
+        {skills.personalSkills && <div className="personal">
           <h2>Personal Skills</h2>
-        </div>
-        <p className="personal-p">{skills.personalSkills}</p>
+        { <p className="personal-p">{skills.personalSkills}</p>}
+        </div>}
       </div>
+      
+      {/* <div className="buttons">
+      <Printer
+       trigger={() => <button className="share-print"> Print/Download </button>}
+       content={() => data.current}
+       documentTitle={`${data.name}`}
+      />
+      </div> */}
     </div>
   );
 };
