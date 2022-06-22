@@ -241,7 +241,7 @@ const Education = () => {
                 className="pro-description"
                 {...register("interests")}
                 value={interests}
-                placeholder="Add your interests"
+                placeholder="Enter your interests"
                 onChange={(e) => setInterests(e.target.value)}
               />
             </div>

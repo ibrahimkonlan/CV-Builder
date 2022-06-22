@@ -151,7 +151,7 @@ function WorkExperience() {
               <input
                 type="text"
                 className="job-title"
-                placeholder="Enter job title"
+                placeholder="Add job title"
                 value={optJobTitle}
                 {...register("optJobTitle")}
                 onChange={(e) => setOptJobTitle(e.target.value)}
@@ -164,7 +164,7 @@ function WorkExperience() {
                 type="text"
                 className="employer"
                 value={optEmployer}
-                placeholder="Enter employer"
+                placeholder="Add employer"
                 {...register("optEmployer")}
                 onChange={(e) => setOptEmployer(e.target.value)}
               />
@@ -239,7 +239,7 @@ function WorkExperience() {
                 className="job-description"
                 {...register("optJobDescription")}
                 value={optJobDescription}
-                placeholder="please enter your role"
+                placeholder="Add your job role"
                 onChange={(e) => setOptJobDescription(e.target.value)}
               />
             </div>

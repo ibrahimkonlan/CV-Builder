@@ -29,7 +29,7 @@ function SkillsSection(props) {
         <div className='skill-wrapper'>
             {dots.map((el, i) => <div className='skill-dot' key={i}></div>)}
         </div>
-         <p className='skill'>{`${props.skill} - ${props.level}`}</p>
+         <h6 className='skill'>{`${props.skill} - ${props.level}`}</h6>
      </div>
   )
 }

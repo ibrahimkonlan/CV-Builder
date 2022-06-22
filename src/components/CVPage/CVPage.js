@@ -1,6 +1,7 @@
 import React from "react";
 import "./CVPage.Style.css";
 import { CVState } from "../../context/CVProvider";
+
 // import {
 //   AiFillPhone,
 //   AiOutlineMail,
@@ -54,7 +55,7 @@ const CVPage = () => {
         </div>
 
         <div className="heading">
-          <h2>Work Experience</h2>
+          <h5>Work Experience</h5>
         </div>
 
         <div className="work-experience">
@@ -73,7 +74,7 @@ const CVPage = () => {
         </div>
 
         <div className="heading">
-          <h2>Education</h2>
+          <h5>Education</h5>
         </div>
 
         <div className="education">
@@ -85,7 +86,7 @@ const CVPage = () => {
         </div>
 
         <div className="heading">
-          <h2>Hobbies And Interests</h2>
+          <h5>Hobbies And Interests</h5>
         </div>
         <p className="interests-p">{education.interests}</p>
       </div>
@@ -115,6 +116,11 @@ const CVPage = () => {
             level={skills.skillFourlevel} 
           />
         </div>
+
+        <div className="personal">
+          <h2>Personal Skills</h2>
+        </div>
+        <p className="personal-p">{skills.personalSkills}</p>
       </div>
     </div>
   );

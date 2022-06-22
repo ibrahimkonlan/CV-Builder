@@ -1,5 +1,5 @@
 .skill-dot {
-    height: 10px;
+    height: 8px;
     width: 10px;
     border-radius: 50%;
     background-color: white;
@@ -16,5 +16,5 @@
 
 .skills-section-component {
     margin-left: 2.5em;
-    /* margin-bottom: 12vh; */
+    margin-bottom: 5vh;
 }
