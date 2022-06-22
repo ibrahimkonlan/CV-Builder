@@ -79,10 +79,15 @@ const CVPage = () => {
 
         <div className="education">
           <EducationSection
-            date={education.date}
+             year={`${education.startDate} - ${education.endDate}`}
             programme={education.programme}
             proDescription={education.proDescription}
           />
+          <EducationSection
+          year={`${education.startDate} - ${education.optEndDate}`}
+          programme={education.optProgramme}
+          proDescription={education.optProDescription}
+            />
         </div>
 
         <div className="heading">
