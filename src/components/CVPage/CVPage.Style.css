@@ -4,9 +4,10 @@
      margin-left: 10em; 
      margin-right: 12em;
      font-size: 12px;
-     /* padding-top: 20px; */
+     margin-bottom: 30px;
+     margin-top: 20px;
     /* border: 1px solid salmon; */
-    background-color: #7640eb0f;
+    background-color: #7b53d10f;
 }
 
 .left-heading {
@@ -59,7 +60,7 @@
 
 .right {
     width: 40%;
-    height: 124vh;
+    height: 140vh;
     background-color: rgb(35, 37, 129);
     /* margin-right: 0.em; */
 }
