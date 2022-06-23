@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./CVPage.Style.css";
+import ReactToPrint from "react-to-print";
 import { CVState } from "../../context/CVProvider";
 
-// import {
+// import { 
 //   AiFillPhone,
 //   AiOutlineMail,
 //   AiFillIdcard,
@@ -18,10 +19,11 @@ import Contact from "./Contact";
 import WorkExperience from "./WorkExperience";
 import EducationSection from "./EducationSection";
 import SkillsSection from "./SkillsSection";
-import Printer from "../Printer/Printer";
 
 const CVPage = () => {
   const { data, workExperience, education, skills } = CVState();
+  const componentRef = useRef();
+
   // console.log(careerObjective);
   // console.log(data);
   // console.log(workExperience);
@@ -35,8 +37,13 @@ const CVPage = () => {
   
 
   return (
-    
-    <div className="cv-page-component">
+    <>
+    <ReactToPrint
+        trigger={() => <button>Print/download!</button>}
+        content={() => componentRef.current}
+      />
+
+    <div className="cv-page-component" ref={componentRef}>
       <div className="left">
         <div className="details">
          <div className="profile-image">
@@ -91,14 +98,14 @@ const CVPage = () => {
             />}
         </div>
 
-        {education.interests &&<div className="heading">
+        {education.interests &&<div className="hobb">
           <h5>Hobbies And Interests</h5>
-          <p className="interests-p">{education.interests}</p>
+          <p className="interests-hobb">{education.interests}</p>
         </div>}
       </div>
 
       <div className="right">
-        { data.careerObjective && <div className="career-objective">{data.careerObjective}</div>}
+        { data.careerObjective && <div className="career-obj">{data.careerObjective}</div>}
 
         {(skills.skillOne ||skills.skillTwo || skills.skillThree || skills.skillFour) &&<div className="left-heading">
           <h2>ProSkills</h2>
@@ -123,20 +130,15 @@ const CVPage = () => {
           />}
         </div>
 
-        {skills.personalSkills && <div className="personal">
+        {skills.personalSkills &&<div className="personal">
           <h2>Personal Skills</h2>
         { <p className="personal-p">{skills.personalSkills}</p>}
         </div>}
       </div>
       
-      {/* <div className="buttons">
-      <Printer
-       trigger={() => <button className="share-print"> Print/Download </button>}
-       content={() => data.current}
-       documentTitle={`${data.name}`}
-      />
-      </div> */}
+      
     </div>
+    </>
   );
 };
 
